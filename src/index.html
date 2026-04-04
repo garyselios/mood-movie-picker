@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Movie Picker</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main>
+        <h1>🎬 Mood Movie Picker</h1>
+        <p class="subtitle">How are you feeling today? Pick your mood and discover the perfect movie!</p>
+        
+        <div class="mood-grid">
+            <button class="mood-btn" data-mood="happy">
+                <span class="emoji">😊</span>
+                <span>Happy</span>
+            </button>
+            <button class="mood-btn" data-mood="sad">
+                <span class="emoji">😢</span>
+                <span>Sad</span>
+            </button>
+            <button class="mood-btn" data-mood="bored">
+                <span class="emoji">😐</span>
+                <span>Bored</span>
+            </button>
+            <button class="mood-btn" data-mood="excited">
+                <span class="emoji">🤩</span>
+                <span>Excited</span>
+            </button>
+            <button class="mood-btn" data-mood="nostalgic">
+                <span class="emoji">📼</span>
+                <span>Nostalgic</span>
+            </button>
+            <button class="mood-btn" data-mood="suspenseful">
+                <span class="emoji">🔪</span>
+                <span>Suspenseful</span>
+            </button>
+        </div>
+        
+        <div id="message"></div>
+    </main>
+
+    <footer id="main-footer"></footer>
+</body>
+</html>
