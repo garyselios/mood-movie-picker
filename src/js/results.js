@@ -59,7 +59,7 @@ function displayMovies(movies) {
   document.querySelectorAll('.movie-card').forEach(card => {
     card.addEventListener('click', () => {
       const movieId = card.getAttribute('data-id');
-      window.location.href = `/details.html?id=${movieId}`;
+      window.location.href = `details.html?id=${movieId}`;  // REMOVED SLASH
     });
   });
 }
@@ -124,7 +124,7 @@ async function init() {
   const backBtn = document.getElementById('back-btn');
   if (backBtn) {
     backBtn.addEventListener('click', () => {
-      window.location.href = '/';
+      window.location.href = 'index.html';  // CHANGED from '/' to 'index.html'
     });
   }
 }

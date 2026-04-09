@@ -62,7 +62,7 @@ export function displaySearchResults(movies, containerId) {
     document.querySelectorAll('.movie-card').forEach(card => {
         card.addEventListener('click', () => {
             const movieId = card.getAttribute('data-id');
-            window.location.href = `/details.html?id=${movieId}`;
+            window.location.href = `details.html?id=${movieId}`;  // REMOVED SLASH
         });
     });
 }

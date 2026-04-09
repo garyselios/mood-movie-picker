@@ -262,7 +262,7 @@ async function init() {
     if (!movieId) {
         const container = document.getElementById('movie-details');
         if (container) {
-            container.innerHTML = '<p>No movie selected. <a href="/">Go back to home</a></p>';
+            container.innerHTML = '<p>No movie selected. <a href="index.html">Go back to home</a></p>';  // CHANGED
         }
         return;
     }
@@ -272,7 +272,7 @@ async function init() {
     const backBtn = document.getElementById('back-btn');
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            window.location.href = document.referrer || '/';
+            window.location.href = document.referrer || 'index.html';  // CHANGED from '/' to 'index.html'
         });
     }
 }

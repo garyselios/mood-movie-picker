@@ -26,7 +26,7 @@ function displayFavorites() {
         container.innerHTML = `
             <div class="empty-favorites">
                 <p>😢 You don't have any favorite movies yet.</p>
-                <p>Go back to the <a href="/">home page</a> and pick a mood to find movies!</p>
+                <p>Go back to the <a href="index.html">home page</a> and pick a mood to find movies!</p>
             </div>
         `;
         return;
@@ -56,7 +56,7 @@ function displayFavorites() {
             // Don't navigate if clicking the remove button
             if (e.target.classList.contains('remove-favorite-btn')) return;
             const movieId = card.getAttribute('data-id');
-            window.location.href = `/details.html?id=${movieId}`;
+            window.location.href = `details.html?id=${movieId}`;  // REMOVED SLASH
         });
     });
     
@@ -79,7 +79,7 @@ async function init() {
     const backBtn = document.getElementById('back-btn');
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            window.location.href = '/';
+            window.location.href = 'index.html';  // CHANGED from '/' to 'index.html'
         });
     }
 }

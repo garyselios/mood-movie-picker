@@ -15,7 +15,7 @@ async function init() {
     const container = document.getElementById('search-results');
     
     if (!query) {
-        container.innerHTML = '<p>No search term provided. <a href="/">Go back to home</a></p>';
+        container.innerHTML = '<p>No search term provided. <a href="index.html">Go back to home</a></p>';
         return;
     }
     
@@ -31,7 +31,7 @@ async function init() {
     const backBtn = document.getElementById('back-btn');
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            window.location.href = '/';
+            window.location.href = 'index.html';  // CHANGED from '/' to 'index.html'
         });
     }
 }
