@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Results | Mood Movie Picker</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/results.js"></script>
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main>
+        <button class="back-btn" id="back-btn">← Back to Moods</button>
+        
+        <h1 id="mood-title">Movies for <span id="selected-mood">...</span> mood</h1>
+        
+        <div id="gif-container" class="gif-container"></div>
+        
+        <div id="results-container" class="results-grid">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+                <p>Loading movies... 🎬</p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+</body>
+</html>
