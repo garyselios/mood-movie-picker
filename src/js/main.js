@@ -29,15 +29,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       messageDiv.innerHTML = `<p>🎬 Loading movies for <strong>${mood}</strong> mood... Please wait.</p>`;
       
-      // Navigate to results after 5 seconds
+      // Navigate to results after 5 seconds - REMOVED THE SLASH /
       setTimeout(() => {
-        window.location.href = `/results.html?mood=${mood}`;
+        window.location.href = `results.html?mood=${mood}`;
       }, 3000);
     });
   });
 });
 
-// Search functionality (add this at the end of main.js)
+// Search functionality
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 
@@ -45,7 +45,7 @@ if (searchBtn && searchInput) {
     const performSearch = () => {
         const query = searchInput.value.trim();
         if (query) {
-            window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+            window.location.href = `search.html?q=${encodeURIComponent(query)}`; // REMOVED SLASH
         }
     };
     
@@ -66,7 +66,7 @@ setTimeout(() => {
         const performSearch = () => {
             const query = searchInput.value.trim();
             if (query) {
-                window.location.href = `/search.html?q=${encodeURIComponent(query)}`;
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`; // REMOVED SLASH
             }
         };
         
