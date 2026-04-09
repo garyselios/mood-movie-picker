@@ -15,8 +15,8 @@ export function renderWithTemplate(template, parentElement) {
 // Load header and footer
 export async function loadHeaderFooter() {
   try {
-    const headerTemplate = await loadTemplate("partials/header.html");  // REMOVED SLASH
-    const footerTemplate = await loadTemplate("partials/footer.html");  // REMOVED SLASH
+    const headerTemplate = await loadTemplate("/partials/header.html");  // ADDED SLASH
+    const footerTemplate = await loadTemplate("/partials/footer.html");  // ADDED SLASH
 
     const headerElement = document.querySelector("#main-header");
     const footerElement = document.querySelector("#main-footer");
@@ -49,7 +49,7 @@ export function initSearch() {
         const performSearch = () => {
             const query = searchInput.value.trim();
             if (query) {
-                window.location.href = `search.html?q=${encodeURIComponent(query)}`;  // REMOVED SLASH
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
             }
         };
         
