@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from './utils.js';
+import { loadHeaderFooter, initSearch } from './utils.js';
 import { alertMessage, alertSuccess, alertError } from './alert.js';
 
 // Get movie ID from URL
@@ -259,10 +259,13 @@ function updateFavoriteButton(movieId) {
 async function init() {
     await loadHeaderFooter();
     
+    // Initialize search functionality
+    initSearch();  // ← Agrega esta línea
+    
     if (!movieId) {
         const container = document.getElementById('movie-details');
         if (container) {
-            container.innerHTML = '<p>No movie selected. <a href="index.html">Go back to home</a></p>';  // CHANGED
+            container.innerHTML = '<p>No movie selected. <a href="index.html">Go back to home</a></p>';
         }
         return;
     }
@@ -272,7 +275,7 @@ async function init() {
     const backBtn = document.getElementById('back-btn');
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            window.location.href = document.referrer || 'index.html';  // CHANGED from '/' to 'index.html'
+            window.location.href = document.referrer || 'index.html';
         });
     }
 }

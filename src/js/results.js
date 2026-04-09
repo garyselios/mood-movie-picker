@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from './utils.js';
+import { loadHeaderFooter, initSearch } from './utils.js';
 import { displayMoodGif } from './giphyAPI.js';
 
 // Get the mood from URL parameter (manually, without getParam)
@@ -59,7 +59,7 @@ function displayMovies(movies) {
   document.querySelectorAll('.movie-card').forEach(card => {
     card.addEventListener('click', () => {
       const movieId = card.getAttribute('data-id');
-      window.location.href = `details.html?id=${movieId}`;  // REMOVED SLASH
+      window.location.href = `details.html?id=${movieId}`;
     });
   });
 }
@@ -104,6 +104,9 @@ async function init() {
   
   await loadHeaderFooter();
   
+  // Initialize search functionality
+  initSearch();  // ← Agrega esta línea
+  
   const moodSpan = document.getElementById('selected-mood');
   if (moodSpan && mood) {
     moodSpan.textContent = mood.charAt(0).toUpperCase() + mood.slice(1);
@@ -124,7 +127,7 @@ async function init() {
   const backBtn = document.getElementById('back-btn');
   if (backBtn) {
     backBtn.addEventListener('click', () => {
-      window.location.href = 'index.html';  // CHANGED from '/' to 'index.html'
+      window.location.href = 'index.html';
     });
   }
 }

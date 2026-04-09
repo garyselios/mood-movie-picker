@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from './utils.js';
+import { loadHeaderFooter, initSearch } from './utils.js';
 import { alertMessage, alertSuccess } from './alert.js';
 
 // Get favorites from localStorage
@@ -56,7 +56,7 @@ function displayFavorites() {
             // Don't navigate if clicking the remove button
             if (e.target.classList.contains('remove-favorite-btn')) return;
             const movieId = card.getAttribute('data-id');
-            window.location.href = `details.html?id=${movieId}`;  // REMOVED SLASH
+            window.location.href = `details.html?id=${movieId}`;
         });
     });
     
@@ -74,12 +74,16 @@ function displayFavorites() {
 // Initialize page
 async function init() {
     await loadHeaderFooter();
+    
+    // Initialize search functionality
+    initSearch();  // ← Agrega esta línea
+    
     displayFavorites();
     
     const backBtn = document.getElementById('back-btn');
     if (backBtn) {
         backBtn.addEventListener('click', () => {
-            window.location.href = 'index.html';  // CHANGED from '/' to 'index.html'
+            window.location.href = 'index.html';
         });
     }
 }
