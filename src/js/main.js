@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from './utils.js';
+import { loadHeaderFooter, initSearch } from './utils.js';
 import { alertMessage } from './alert.js';
 import { displayMoodGif } from './giphyAPI.js';
 
@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Load header and footer
   await loadHeaderFooter();
+  
+  // Initialize search (this will work because header is now loaded)
+  initSearch();
   
   // Show welcome alert
   alertMessage('Welcome to Mood Movie Picker! 🎬 Pick your mood to discover the perfect movie.');
@@ -29,53 +32,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       
       messageDiv.innerHTML = `<p>🎬 Loading movies for <strong>${mood}</strong> mood... Please wait.</p>`;
       
-      // Navigate to results after 5 seconds - REMOVED THE SLASH /
+      // Navigate to results after 3 seconds
       setTimeout(() => {
         window.location.href = `results.html?mood=${mood}`;
       }, 3000);
     });
   });
 });
-
-// Search functionality
-const searchInput = document.getElementById('search-input');
-const searchBtn = document.getElementById('search-btn');
-
-if (searchBtn && searchInput) {
-    const performSearch = () => {
-        const query = searchInput.value.trim();
-        if (query) {
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`; // REMOVED SLASH
-        }
-    };
-    
-    searchBtn.addEventListener('click', performSearch);
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
-    });
-}
-
-// Make sure search works
-setTimeout(() => {
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-    
-    if (searchBtn && searchInput) {
-        const performSearch = () => {
-            const query = searchInput.value.trim();
-            if (query) {
-                window.location.href = `search.html?q=${encodeURIComponent(query)}`; // REMOVED SLASH
-            }
-        };
-        
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-        console.log('Search listeners added from main.js');
-    }
-}, 500);
