@@ -5,10 +5,33 @@
   
   <div class="search-container">
     <input type="text" id="search-input" placeholder="Search for a movie..." class="search-input">
-    <button id="search-btn" class="search-btn">🔍</button>
+    <button id="search-btn" class="search-btn" onclick="window.performSearch()">🔍</button>
   </div>
   
   <nav>
     <a href="favorites.html" class="nav-link">❤️ Favorites</a>
   </nav>
 </header>
+
+<script>
+window.performSearch = function() {
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput ? searchInput.value.trim() : '';
+    console.log('Searching for:', query);
+    if (query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+};
+
+// Enter key support
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                window.performSearch();
+            }
+        });
+    }
+});
+</script>

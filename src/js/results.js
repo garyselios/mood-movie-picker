@@ -81,7 +81,7 @@ async function loadMovies() {
     console.log('Movies found:', data.results?.length || 0);
     
     if (data.results && data.results.length > 0) {
-      const movies = data.results.slice(0, 6).map(movie => ({
+      const movies = data.results.slice(0, 15).map(movie => ({
         id: movie.id,
         title: movie.title,
         year: movie.release_date ? movie.release_date.split('-')[0] : 'N/A',
